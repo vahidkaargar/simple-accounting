@@ -2,7 +2,8 @@
 
 function getCookies()
 {
-    if (array_key_exists(LOGIN_COOKIE, $_COOKIE)) {
+    $cookie = $_COOKIE[LOGIN_COOKIE] ?? null;
+    if (!is_null($cookie)) {
         $cookie = encryption($_COOKIE[LOGIN_COOKIE], true);
         if (isJson($cookie)) {
             return json_decode($cookie, true);
