@@ -2,8 +2,12 @@ body {
     font-family: Vazirmatn, sans-serif;
 }
 
-.rtl{
+.rtl {
     direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
 }
 
 .bd-placeholder-img {
