@@ -182,4 +182,3 @@ if (file_exists($actionFile)) {
 } else {
     die('<h1>Action not exists!</h1>');
 }
-

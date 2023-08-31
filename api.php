@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
-include("includes/configs.php");
+include("includes/configs.backup.backup.php");
 include("includes/db.php");
 include("includes/functions.php");
 
@@ -16,4 +16,3 @@ if (file_exists($actionFile)) {
 } else {
     die(json_encode(['success' => false, 'message' => 'Action not exists!']));
 }
-
