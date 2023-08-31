@@ -1,4 +1,13 @@
 <?php
+// admin menu
+const ADMIN_MENU = [
+    ['address' => 'admin.php?action=index', 'title' => 'داشبورد', 'icon' => 'house-fill'],
+    ['address' => 'admin.php?action=transactions.index', 'title' => 'لیست خریدها', 'icon' => 'file-earmark'],
+    ['address' => 'admin.php?action=wallets.index', 'title' => 'کیف پول', 'icon' => 'people'],
+    ['address' => 'admin.php?action=logout', 'title' => 'خروج از مدیریت', 'icon' => 'door-closed'],
+];
+
+
 include("includes/configs.php");
 include("includes/db.php");
 include("includes/functions.php");
