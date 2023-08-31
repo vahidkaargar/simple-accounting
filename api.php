@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
-include("includes/configs.backup.backup.php");
+include("includes/configs.backup.php");
 include("includes/db.php");
 include("includes/functions.php");
 
