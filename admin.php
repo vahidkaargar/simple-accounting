@@ -135,7 +135,7 @@ if (file_exists($actionFile)) {
 
         <div class="container-fluid h-100">
             <div class="row">
-                <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary" style="height: 100vh">
+                <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
                     <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
                          aria-labelledby="sidebarMenuLabel">
                         <div class="offcanvas-header">
