@@ -1,4 +1,5 @@
 <?php
+$title = 'کیف های پول';
 //write query for database
 $sql = "SELECT * FROM wallets ORDER BY created_at";
 
