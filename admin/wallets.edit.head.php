@@ -21,7 +21,7 @@ mysqli_free_result($query);
 
 
 // get balance
-$query = mysqli_query(DB, "SELECT CASE WHEN amount > 0 THEN 'deposit' WHEN amount < 0 THEN 'withdrawal' ELSE 'trash' END AS `amount_category`, SUM(amount) AS `sum_amount` FROM `transactions` GROUP BY `amount_category`");
+$query = mysqli_query(DB, "SELECT CASE WHEN amount > 0 THEN 'deposit' WHEN amount < 0 THEN 'withdrawal' ELSE 'trash' END AS `amount_category`, SUM(amount) AS `sum_amount` FROM `transactions` WHERE `telegram_id`='$telegramId' GROUP BY `amount_category`");
 $transactions = mysqli_fetch_all($query);
 $balance = [];
 foreach ($transactions as $transaction){
