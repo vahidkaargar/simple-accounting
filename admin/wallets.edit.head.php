@@ -23,11 +23,16 @@ mysqli_free_result($query);
 // get balance
 $query = mysqli_query(DB, "SELECT CASE WHEN amount > 0 THEN 'deposit' WHEN amount < 0 THEN 'withdrawal' ELSE 'trash' END AS `amount_category`, SUM(amount) AS `sum_amount` FROM `transactions` WHERE `telegram_id`='$telegramId' GROUP BY `amount_category`");
 $transactions = mysqli_fetch_all($query);
+<<<<<<< Updated upstream
 $balance = [
         'deposit' => 0,
         'withdrawal' => 0
     ];
 foreach ($transactions as $transaction){
+=======
+$balance = [];
+foreach ($transactions as $transaction) {
+>>>>>>> Stashed changes
     $balance[$transaction[0]] = $transaction[1];
 }
 
@@ -39,12 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = mysqli_real_escape_string(DB, $_POST['name'] ?? '');
     $mobile = mysqli_real_escape_string(DB, $_POST['mobile'] ?? '');
     $amount = mysqli_real_escape_string(DB, $_POST['amount'] ?? 0);
+    $servers = cast($_POST['servers'] ?? '', true);
 
     if ($telegramId and $telegramUsername and $name and $amount) {
         //create sql
         $sql = sprintf(
-            "UPDATE `wallets` SET `telegram_id`='%s', `telegram_username`='%s', `name`='%s', `mobile`='%s', `amount`='%s', `updated_at`=NOW() WHERE `telegram_id`='%s'",
-            $telegramId, $telegramUsername, $name, $mobile, $amount, $oldTelegramId
+            "UPDATE `wallets` SET `telegram_id`='%s', `telegram_username`='%s', `name`='%s', `mobile`='%s', `amount`='%s', `servers`='%s', `updated_at`=NOW() WHERE `telegram_id`='%s'",
+            $telegramId, $telegramUsername, $name, $mobile, $amount, $servers, $oldTelegramId
         );
 
         //save to db check

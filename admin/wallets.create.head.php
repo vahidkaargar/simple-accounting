@@ -9,10 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = mysqli_real_escape_string(DB, $_POST['name'] ?? '');
     $mobile = mysqli_real_escape_string(DB, $_POST['mobile'] ?? '');
     $amount = mysqli_real_escape_string(DB, $_POST['amount'] ?? 0);
+    $servers = cast($_POST['servers'] ?? '', true);
 
     if ($telegramId and $telegramUsername and $name and $amount) {
         //create sql
-        $sql = "INSERT INTO `wallets` (`telegram_id`, `telegram_username`, `name`, `mobile`, `amount`, `created_at`, `updated_at`) VALUES ('$telegramId', '$telegramUsername', '$name', '$mobile', '$amount', NOW(), NOW())";
+        $sql = sprintf(
+            "INSERT INTO `wallets` (`telegram_id`, `telegram_username`, `name`, `mobile`, `amount`, `servers`, `created_at`, `updated_at`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', NOW(), NOW())",
+            $telegramId, $telegramUsername, $name, $mobile, $amount, $servers
+        );
 
         //save to db check
         if (mysqli_query(DB, $sql)) {

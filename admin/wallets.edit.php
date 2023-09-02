@@ -64,6 +64,12 @@
                                value="<?= $wallet['amount'] ?>">
                         <span class="input-group-text" id="inputGroup-sizing-default">هزینه همکار</span>
                     </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" name="servers"
+                               value="<?= cast($wallet['servers']) ?>">
+                        <span class="input-group-text" id="inputGroup-sizing-default">سرورهای مجاز</span>
+                    </div>
                     <button type="submit" class="btn btn-primary">ویرایش کیف پول</button>
                 </form>
             </div>

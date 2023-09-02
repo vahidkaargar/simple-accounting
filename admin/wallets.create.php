@@ -32,6 +32,11 @@
                        aria-describedby="inputGroup-sizing-default" name="amount">
                 <span class="input-group-text" id="inputGroup-sizing-default">هزینه همکار</span>
             </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-default" name="servers">
+                <span class="input-group-text" id="inputGroup-sizing-default">سرورهای مجاز</span>
+            </div>
             <button type="submit" class="btn btn-primary">ایجاد کیف پول</button>
         </form>
     </div>
