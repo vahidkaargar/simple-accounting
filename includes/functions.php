@@ -1,5 +1,21 @@
 <?php
 
+function cast($data, $toJson = false)
+{
+    if ($toJson) {
+        $dataArray = array_map(function ($item) {
+            return trim($item);
+        }, explode(',', $data ?? ''));
+        return json_encode($dataArray);
+    }
+
+    if (is_null($data)) {
+        return '';
+    }
+    $arrayData = json_decode($data, true);
+    return implode(', ', $arrayData);
+}
+
 function getCookies()
 {
     $cookie = $_COOKIE[LOGIN_COOKIE] ?? null;
