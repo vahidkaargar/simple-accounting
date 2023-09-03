@@ -16,10 +16,7 @@
         <?php foreach ($transactions as $transaction): ?>
             <tr>
                     <th scope="row" class="ltr"><?php echo htmlspecialchars($transaction['telegram_id']); ?></th>
-                    <td class="ltr">
-                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                           href="./admin.php?action=transactions.change&telegram_id=<?= htmlspecialchars($transaction['telegram_id']) ?>"><?= htmlspecialchars($user['telegram_username']) ?></a>
-                    </td>
+                    <td class="ltr"><?php echo htmlspecialchars($user['telegram_username']); ?></td>
                     <td class="ltr"><?php echo number_format($transaction['amount']); ?></td>
                     <td class="ltr"><?php echo htmlspecialchars($transaction['servers']); ?></td>
                     <td class="ltr"><?= $transaction['created_at'] ?></td>
