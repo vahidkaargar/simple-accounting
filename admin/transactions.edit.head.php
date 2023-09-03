@@ -32,3 +32,26 @@ $user = mysqli_fetch_assoc($query);
 //free result from memory
 mysqli_free_result($query);
 
+//edit transactions amount
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $oldTelegramId = $telegramId;
+    $telegramId = mysqli_real_escape_string(DB, $_GET['telegram_id'] ?? '');
+    $amount = mysqli_real_escape_string(DB, $_POST['amount'] ?? 0);
+    echo  $telegramId . "te" . $amount ;
+    if ($telegramId and $amount) {
+        //create sql
+        $sql = sprintf(
+            "INSERT INTO `transactions` (`telegram_id`, `amount`, `created_at`, `updated_at`) VALUES ( '%s', '%s', NOW(), NOW())",
+            $telegramId , $amount
+        );
+
+        //save to db check
+        if (mysqli_query(DB, $sql)) {
+            redirect('./admin.php?action=transactions.edit&telegram_id=' . $telegramId);
+        } else {
+            $_ENV['error'] = mysqli_error(DB);
+        }
+    } else {
+        $_ENV['error'] = 'تمام فیلدها ضروری هستند!';
+    }
+}

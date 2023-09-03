@@ -27,3 +27,20 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="col-md-7">
+            <div class="m-auto ltr" style="max-width: 400px">
+                <form class="" action="./admin.php?action=transactions.edit&telegram_id=<?= $transaction['telegram_id'] ?>"
+                      method="post">
+                    <?php if ($_ENV['error']): ?>
+                        <div class="alert alert-danger rtl"><?= $_ENV['error'] ?></div>
+                    <?php endif; ?>
+                    <div class="input-group mb-3 ">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" name="amount" >
+                        <span class="input-group-text" id="inputGroup-sizing-default">تغییر مقدار کیف پول</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ویرایش کیف پول</button>
+                </form>
+            </div>
+        </div>
+</div>
