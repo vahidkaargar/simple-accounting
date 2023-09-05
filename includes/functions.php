@@ -1,5 +1,21 @@
 <?php
 
+function paginate($recordsCount, $chunk = 5)
+{
+    $paginate['per_page'] = PAGINATE_PER_PAGE;
+    $paginate['current_page'] = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $paginate['total_pages'] = ceil($recordsCount / $paginate['per_page']);
+
+    $current_chunk = ceil($paginate['current_page'] / $chunk);
+    $paginate['start_page'] = ($current_chunk - 1) * $chunk + 1;
+    $paginate['end_page'] = min($paginate['start_page'] + $chunk - 1, $paginate['total_pages']);
+    $paginate['page_numbers'] = range($paginate['start_page'], $paginate['end_page']);
+
+    $paginate['offset'] = ($paginate['current_page'] - 1) * $paginate['per_page'];
+
+    return $paginate;
+}
+
 function cast($data, $toJson = false)
 {
     if ($toJson) {
