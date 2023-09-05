@@ -10,6 +10,14 @@ body {
     direction: ltr;
 }
 
+.bg-light-success {
+    background-color: #aeffc4 !important;
+}
+
+.bg-light-danger {
+    background-color: #ffaeae !important;
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
