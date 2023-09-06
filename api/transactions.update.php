@@ -15,7 +15,7 @@ if (mysqli_num_rows($query) === 0) {
 $transaction = mysqli_fetch_assoc($query);
 mysqli_free_result($query);
 
-if (mysqli_query(DB, sprintf("UPDATE `transactions` SET `server`='', `username`='' WHERE `id`='%s'", $transaction['id']))) {
+if (mysqli_query(DB, sprintf("UPDATE `transactions` SET `server`='%s', `service_username`='%s' WHERE `id`='%s'", $server, $username, transactionId))) {
     die(json_encode([
         "success" => true,
         "message" => 'Transaction updated.'

@@ -59,7 +59,7 @@ if ($wallet['amount'] > $balance) {
     if (mysqli_query(DB, "INSERT INTO `transactions` (`telegram_id`, `amount`) VALUES ('$telegram_id', '$amount')")) {
         //success
         $response['success'] = true;
-        $response['balance'] = $balance - $amount;
+        $response['balance'] = $balance + $amount;
         $response['transaction_id'] = mysqli_insert_id(DB);
         $response['message'] = "مبلغ اکانت از حساب شما برداشت شد.";
     } else {
