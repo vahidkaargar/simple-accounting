@@ -28,7 +28,7 @@
             <th scope="col">مبلغ</th>
             <th style="width: 120px" scope="col">کد تراکنش</th>
             <th scope="col">تلگرام یوزرنیم</th>
-            <th scope="col">مشاهده</th>
+            <th scope="col">حذف</th>
             <th scope="col">سرور</th>
             <th scope="col">تاریخ ایجاد</th>
         </tr>
@@ -47,9 +47,10 @@
                     </a>
                 </td>
                 <td class="ltr <?= $bgColor ?>">
-                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                       target="_blank"
-                       href="./admin.php?action=transactions.edit&id=<?= $transaction['id'] ?>">مشاهده</a>
+                    <form action="./admin.php?action=transactions.delete" method="POST" >
+                    <input type="hidden" value="<?= $transaction['id'] ?>" name="id">
+                     <button type="submit" class="btn btn-danger">حذف</button>
+                    </form>
                 </td>
                 <td class="ltr <?= $bgColor ?>"><?php echo htmlspecialchars($transaction['server'] ?? 'N/A'); ?></td>
                 <td class="ltr <?= $bgColor ?>"><?= $transaction['created_at'] ?></td>
