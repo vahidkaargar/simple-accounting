@@ -73,6 +73,7 @@
                     <button type="submit" class="btn btn-primary">ویرایش کیف پول</button>
                 </form>
             </div>
+            <a class="btn btn-primary" href="./admin.php?action=transactions.create&telegram_id=<?= $wallet['telegram_id'] ?>">افزودن شارژ</a>
         </div>
     </div>
 </div>
