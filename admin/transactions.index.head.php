@@ -8,7 +8,7 @@ $paginate = paginate($transactionsCount['total']);
 
 
 //write query for database
-$sql = "SELECT t.*, w.telegram_username FROM transactions t INNER JOIN wallets w ON t.telegram_id = w.telegram_id LIMIT {$paginate['per_page']} OFFSET {$paginate['offset']}";
+$sql = "SELECT t.*, w.telegram_username FROM transactions t INNER JOIN wallets w ON t.telegram_id = w.telegram_id ORDER BY `id` DESC LIMIT {$paginate['per_page']} OFFSET {$paginate['offset']}";
 
 //make query & get data
 $query = mysqli_query(DB, $sql);
