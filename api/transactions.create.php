@@ -22,7 +22,7 @@ $wallet = mysqli_fetch_assoc($query);
 mysqli_free_result($query);
 
 // check for server validation
-if (in_array($server, json_decode($wallet['servers'], true))) {
+if (!in_array($server, json_decode($wallet['servers'], true))) {
     die(json_encode([
         "success" => false,
         "balance" => 0,
