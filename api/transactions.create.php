@@ -4,7 +4,7 @@ $telegram_id = intval($_REQUEST['telegram_id']);
 $server = mysqli_real_escape_string(DB, $_REQUEST['server']);
 
 //make query & get data
-$query = mysqli_query(DB, "SELECT `telegram_id`, `amount` FROM `wallets` WHERE `telegram_id`='$telegram_id'");
+$query = mysqli_query(DB, "SELECT * FROM `wallets` WHERE `telegram_id`='$telegram_id'");
 
 // check if exists
 if (mysqli_num_rows($query) === 0) {
@@ -31,7 +31,7 @@ if (in_array($server, json_decode($wallet['servers'], true))) {
 }
 
 // query to user wallet balance
-$query = mysqli_query(DB, "SELECT SUM(`amount`) AS `balance` FROM `transactions` WHERE `telegram_id`='$telegram_id'");
+$query = mysqli_query(DB, "SELECT SUM(`amount`) AS `balance` FROM `transactions` WHERE `telegram_id`='$telegram_id' and `is_paid`=1");
 
 // fetch user balance
 $transactions = mysqli_fetch_assoc($query);
