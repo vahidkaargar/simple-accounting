@@ -1,5 +1,13 @@
 <?php
 
+function bgTransactionRow($transaction)
+{
+    if ($transaction['is_paid']) {
+        return ($transaction['amount'] < 0) ? 'bg-light-danger' : 'bg-light-success';
+    }
+    return 'bg-warning';
+}
+
 function paginate($recordsCount, $chunk = 5)
 {
     $paginate['per_page'] = PAGINATE_PER_PAGE;
@@ -71,7 +79,7 @@ function isAdmin()
 function checkToken()
 {
     $token = $_REQUEST['token'] ?? '';
-    if ($token !== API_TOKEN) {
+    if ($token != API_TOKEN) {
         die(json_encode(['success' => false, 'message' => 'Unauthorized token!']));
     }
 }
