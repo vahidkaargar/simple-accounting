@@ -19,3 +19,6 @@ const ENCRYPTION_ALGORITHM = 'aes-128-ecb';
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'admin';const ADMIN_PASSWORD = 'admin';
 const PAGINATE_PER_PAGE = 10;
+
+
+const ADD_FUND_MIN = 200000;
