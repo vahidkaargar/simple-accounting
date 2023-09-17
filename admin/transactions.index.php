@@ -35,7 +35,7 @@
         </thead>
         <tbody>
         <?php foreach ($transactions as $transaction): ?>
-            <?php $bgColor = ($transaction['amount'] < 0) ? 'bg-light-danger' : 'bg-light-success'; ?>
+            <?php $bgColor = bgTransactionRow($transaction); ?>
             <tr>
                 <td class="text-start ltr <?= $bgColor ?>"><?php echo number_format($transaction['amount']); ?></td>
                 <th scope="row" class="ltr <?= $bgColor ?>"><?php echo $transaction['id']; ?></th>
@@ -47,9 +47,9 @@
                     </a>
                 </td>
                 <td class="ltr <?= $bgColor ?>">
-                    <form action="./admin.php?action=transactions.delete" method="POST" >
+                    <form onsubmit="return confirm('آیا از حذف این تراکنش اطمینان دارید؟')" action="./admin.php?action=transactions.delete" method="POST" >
                     <input type="hidden" value="<?= $transaction['id'] ?>" name="id">
-                     <button type="submit" class="btn btn-danger">حذف</button>
+                     <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                     </form>
                 </td>
                 <td class="ltr <?= $bgColor ?>"><?php echo htmlspecialchars($transaction['server'] ?? 'N/A'); ?></td>
