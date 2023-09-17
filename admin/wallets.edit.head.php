@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($telegramId and $telegramUsername and $name and $amount) {
         //create sql
         $sql = sprintf(
-            "UPDATE `wallets` SET `telegram_id`='%s', `telegram_username`='%s', `name`='%s', `mobile`='%s', `amount`='%s', `servers`='%s', `updated_at`=NOW() WHERE `telegram_id`='%s'",
-            $telegramId, $telegramUsername, $name, $mobile, $amount, $servers, $oldTelegramId
+            "UPDATE `wallets` SET `telegram_username`='%s', `name`='%s', `mobile`='%s', `amount`='%s', `servers`='%s', `updated_at`=NOW() WHERE `telegram_id`='%s'",
+            $telegramUsername, $name, $mobile, $amount, $servers, $oldTelegramId
         );
 
         //save to db check

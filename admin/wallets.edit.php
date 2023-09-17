@@ -40,8 +40,9 @@
                     <?php endif; ?>
                     <div class="input-group mb-3 ">
                         <input type="text" class="form-control" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-default" name="telegram_id"
-                               value="<?= $wallet['telegram_id'] ?>">
+                               aria-describedby="inputGroup-sizing-default"
+                               value="<?= $wallet['telegram_id'] ?>" disabled>
+                        <input type="hidden" name="telegram_id" value="<?= $wallet['telegram_id'] ?>">
                         <span class="input-group-text" id="inputGroup-sizing-default">تلگرام آیدی</span>
                     </div>
                     <div class="input-group mb-3">
